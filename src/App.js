@@ -1,26 +1,53 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {useEffect, useState} from 'react';
+import { Router, Location } from "@reach/router"
+
+import Product1 from 'products/BirthPillow'
+import StickyHeader from 'components/StickyHeader'
+import HeroBanner from 'components/HeroBanner'
+import { ConfineWidth } from 'components/Common'
+
+import {
+  TrendSetter
+} from './AppStyles'
+
+import Shopify from 'shopify-buy'
+
+export const ShopifyContext = React.createContext({})
+
+const shopifyClient = Shopify.buildClient({
+  domain: `seraphine-forever.myshopify.com`,
+  storefrontAccessToken: `563c2502ed08b7c8eb18d5c1872f8d8c`
+})
 
 function App() {
+  const [shopifyProducts, setShopifyProducts] = useState([])
+
+  useEffect(() => {
+    shopifyClient.product.fetchAll().then(setShopifyProducts);
+  }, [])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <React.Fragment>
+      <ShopifyContext.Provider value={shopifyProducts}>
+        <TrendSetter />
+        <Location>
+          {({location}) => (
+            <React.Fragment>
+              <StickyHeader path={location.pathname}/>
+              <HeroBanner path={location.pathname}/>
+            </React.Fragment>
+          )}
+        </Location>
+        <ConfineWidth>
+          <Router>
+            < Product1 path='/products'/>
+          </Router>
+        </ConfineWidth>
+      </ShopifyContext.Provider>
+
+      <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans:400,700|Alegreya:400,700&display=swap" rel="stylesheet"/>
+    </React.Fragment>
+  )
 }
 
 export default App;
