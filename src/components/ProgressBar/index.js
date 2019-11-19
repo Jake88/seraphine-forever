@@ -53,6 +53,8 @@ const Step = ({width, first, active, complete, label}) => (
   </Wrapper>
 )
 
+// TODO: Make this resposive by reducing the dot size and removing the text of the non-active steps?
+
 export default ({steps}) => (
   <ProgressBar>
     {steps.map((step, index) => (
