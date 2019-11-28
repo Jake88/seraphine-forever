@@ -4,12 +4,12 @@ const productsContext = React.createContext([])
 
 export const provideProducts = ({products, children}) => (
   <productsContext.Provider value={products}>
-    {...children}
+    {children}
   </productsContext.Provider>
 )
 
 export const consumeProducts = Cmpt => props => {
   <productsContext.Consumer>
-    {products => <Cmpt products={products} {...props} />}// Does this work? {...props, products}}
+    {products => <Cmpt products={products} {...props} />}
   </productsContext.Consumer>
 }

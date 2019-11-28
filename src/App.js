@@ -4,7 +4,8 @@ import { Router, Location } from "@reach/router"
 import Product1 from 'products/BirthPillow'
 import StickyHeader from 'components/StickyHeader'
 import HeroBanner from 'components/HeroBanner'
-import { ConfineWidth } from 'components/Common'
+import { ConfineWidth } from 'components/common'
+import { CartProvider } from 'contexts/cart'
 
 import {
   TrendSetter
@@ -29,20 +30,22 @@ function App() {
   return (
     <React.Fragment>
       <ShopifyContext.Provider value={shopifyProducts}>
-        <TrendSetter />
-        <Location>
-          {({location}) => (
-            <React.Fragment>
-              <StickyHeader path={location.pathname}/>
-              <HeroBanner path={location.pathname}/>
-            </React.Fragment>
-          )}
-        </Location>
-        <ConfineWidth>
-          <Router>
-            < Product1 path='/products'/>
-          </Router>
-        </ConfineWidth>
+        <CartProvider cart={shopifyProducts}>
+          <TrendSetter />
+          <Location>
+            {({location}) => (
+              <React.Fragment>
+                <StickyHeader path={location.pathname}/>
+                <HeroBanner path={location.pathname}/>
+              </React.Fragment>
+            )}
+          </Location>
+          <ConfineWidth>
+            <Router>
+              < Product1 path='/products'/>
+            </Router>
+          </ConfineWidth>
+        </CartProvider>
       </ShopifyContext.Provider>
 
       <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans:400,700|Alegreya:400,700&display=swap" rel="stylesheet"/>

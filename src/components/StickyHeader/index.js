@@ -3,7 +3,7 @@ import sc from 'styled-components'
 
 import logo from 'assets/logo.png'
 import * as gs from 'utils/globalStyles'
-import { ConfineWidth, Link } from 'components/Common'
+import { ConfineWidth, Link } from 'components/common'
 import { getNavConfig } from 'utils/paths'
 
 const Bar = sc.div`

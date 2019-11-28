@@ -4,9 +4,10 @@ import {Link as ReachLink} from '@reach/router'
 
 import * as gs from 'utils/globalStyles'
 import PATHS, { getNavConfig } from 'utils/paths'
-import { ConfineWidth } from 'components/Common'
+import { ConfineWidth } from 'components/common'
 import logoWithBackground from 'assets/logoWithBackground.jpg'
 import heroBackground from 'assets/christmasbaubles.jpg'
+import CartIcon from 'components/common/cart'
 
 const HeroBanner = sc.section`
   background-image:
@@ -134,6 +135,7 @@ export default ({path}) => {
             <Link {...config} key={config.name}>{config.name}</Link>
           ))}
           <Expander home={home}/>
+          <CartIcon path={path}/>
         </Nav>
 
       </Wrapper>

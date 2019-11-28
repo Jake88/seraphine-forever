@@ -3,7 +3,7 @@ import sc from 'styled-components'
 
 import SvgEditor from 'products/SvgEditor'
 import * as gs from 'utils/globalStyles'
-import { Panel, Title, Paragraph } from 'components/Common'
+import { Panel, Title, Paragraph } from 'components/common'
 import ProgressBar from 'components/ProgressBar'
 
 
