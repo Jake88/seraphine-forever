@@ -130,7 +130,7 @@ export default ({path}) => {
         </InnerWrapper>
 
         <Nav>
-          {getNavConfig(path).map(config => (
+          {getNavConfig(path).map(config => !config.hidden && (
             <Link {...config} key={config.name}>{config.name}</Link>
           ))}
           <Expander home={home}/>

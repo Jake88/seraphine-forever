@@ -61,7 +61,7 @@ export default ({path}) => (
       <Title><Link to='/'>Seraphine Forever</Link></Title>
 
       <Nav>
-        {getNavConfig(path).map(config => (
+        {getNavConfig(path).map(config => !config.hidden && (
           <Link {...config} key={config.name}>{config.name}</Link>
         ))}
       </Nav>
