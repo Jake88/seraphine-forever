@@ -9,6 +9,7 @@
     "react-scripts": "3.0.1",
     "shopify-buy": "^2.6.1",
     "styled-components": "^4.3.2",
+    "styled-icons": "^9.0.1",
     "styled-media-helper": "^1.1.0",
     "styled-reset": "^2.0.16",
     "tinycolor2": "^1.4.1"
