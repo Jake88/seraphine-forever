@@ -83,7 +83,7 @@ const CartIcon = ({cart, path}) => {
   return (
     <Link to={PATHS.CART}>
       <Text selected={selected}>Cart</Text>
-      {cart.length ? <Alert>{cart.length}</Alert> : null}
+      {cart.items && cart.items.length ? <Alert>{cart.items.length}</Alert> : null}
       <StyledCartIcon selected={selected}/>
     </Link>
   )

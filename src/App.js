@@ -30,7 +30,7 @@ function App() {
   return (
     <React.Fragment>
       <ShopifyContext.Provider value={shopifyProducts}>
-        <CartProvider cart={shopifyProducts}>
+        <CartProvider>
           <TrendSetter />
           <Location>
             {({location}) => (
