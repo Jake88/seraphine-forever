@@ -22,14 +22,14 @@ const Product1 = ({ colours, shopifyProduct }) => {
   if (shopifyProduct.images) {
     imageSources = shopifyProduct.images.map(img => img.src)
   }
-  console.log(shopifyProduct)
+  console.log('shopifyProduct', shopifyProduct)
 
   const props = {productConfig, shopifyProduct, imageSources, colours, colourStates}
 
-  return (
-    <ProductTemplate Svg={SVG} {...props}>
-      Insert a form to handle all the options for the this pattern. IE custom name, weight time etc
-    </ProductTemplate>
+  return (null
+    // <ProductTemplate Svg={SVG} {...props}>
+    //   Insert a form to handle all the options for the this pattern. IE custom name, weight time etc
+    // </ProductTemplate>
   )
 }
 

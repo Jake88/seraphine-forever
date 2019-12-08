@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 
 const CartContext = React.createContext({})
 
-export const CartProvider = ({children}) => {
+export const ProvideCart = ({children}) => {
   const [cart, setCart] = useState({})
 
   const addToCart = item => {
@@ -20,9 +20,11 @@ export const CartProvider = ({children}) => {
   }, [])
 
   return (
-    <CartContext.Provider value={cart}>
-      {children}
-    </CartContext.Provider>
+    <div>
+      <CartContext.Provider value={cart}>
+        {children}
+      </CartContext.Provider>
+    </div>
   )
 }
 
