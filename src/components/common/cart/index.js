@@ -5,7 +5,7 @@ import { Link as ReachLink } from '@reach/router'
 
 import * as gs from 'utils/globalStyles'
 import PATHS, { getNavConfig } from 'utils/paths'
-import { consumeCart } from 'contexts/cart'
+import { withCart } from 'contexts/cart'
 
 const StyledCartIcon = sc(ShoppingCart).attrs(() => ({
   size: '32px'
@@ -73,7 +73,7 @@ const CartIcon = ({cart, path}) => {
   useEffect(() => {
     const navConfig = getNavConfig(path)
     for (let i = 0; i < navConfig.length; i++) {
-      if (navConfig[i].to === PATHS.CART) {
+      if (navConfig[i].to === PATHS.CART.to) {
         setSelected(navConfig[i].selected)
         break
       }
@@ -81,7 +81,7 @@ const CartIcon = ({cart, path}) => {
   }, [path])
 
   return (
-    <Link to={PATHS.CART}>
+    <Link to={PATHS.CART.to}>
       <Text selected={selected}>Cart</Text>
       {cart.items && cart.items.length ? <Alert>{cart.items.length}</Alert> : null}
       <StyledCartIcon selected={selected}/>
@@ -89,4 +89,4 @@ const CartIcon = ({cart, path}) => {
   )
 }
 
-export default consumeCart(CartIcon)
+export default withCart(CartIcon)

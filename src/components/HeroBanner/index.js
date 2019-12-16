@@ -17,6 +17,7 @@ const HeroBanner = sc.section`
   background-size: cover;
   background-position: center;
   pointer-events: none;
+  margin-bottom: ${({home}) => home ? '0' : '80px'};
 `
 
 const Wrapper = sc(ConfineWidth)`
@@ -109,7 +110,7 @@ const Fader = sc.div`
 export default ({path}) => {
   const [showExtras, setShowExtras] = useState(false)
 
-  const home = path === PATHS.HOME
+  const home = path === PATHS.HOME.relative
 
   if (home) {
     setTimeout(() => setShowExtras(true), 400)
@@ -118,7 +119,7 @@ export default ({path}) => {
   }
 
   return (
-    <HeroBanner>
+    <HeroBanner home={home}>
       <Wrapper home={home}>
         <InnerWrapper>
           <Centerpiece home={showExtras} src={logoWithBackground}/>

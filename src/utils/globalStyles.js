@@ -22,6 +22,7 @@ const createPalette = colour => ({
   lighter: lighten(colour),
   lightest: lighten(colour, 50),
   tinted: lighten(colour, 95),
+  shaded: darken(colour, 90),
   faded: fade(colour)
 })
 

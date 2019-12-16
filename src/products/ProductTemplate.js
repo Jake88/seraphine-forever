@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import sc from 'styled-components'
 
-import SvgEditor from 'products/SvgEditor'
+import SvgEditor from 'components/SvgEditor'
 import * as gs from 'utils/globalStyles'
 import { Panel, Title, Paragraph } from 'components/common'
 import ProgressBar from 'components/ProgressBar'

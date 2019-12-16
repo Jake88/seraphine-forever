@@ -28,7 +28,7 @@ export const ProvideCart = ({children}) => {
   )
 }
 
-export const consumeCart = Cmpt => props => (
+export const withCart = Cmpt => props => (
   <CartContext.Consumer>
     {cart => <Cmpt cart={cart} {...props} />}
   </CartContext.Consumer>

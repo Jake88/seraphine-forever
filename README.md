@@ -66,3 +66,103 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+
+##Seraphine components
+Sticky header
+	- Logo link
+	- Sub Navigation
+Hero Banner
+	- Main Logo / blurb
+	- Hero Navigation
+	- Cart icon
+Footer
+- Copyright
+- Sitemap
+
+
+Home
+- Content panel
+- Burb paragraph
+- Step description
+    - Icon list
+- Page split image
+- Testimonials
+
+Products
+- Content Panel
+- Custom Designs banner
+- Filter component
+- Product Thumbnail
+    - Image
+    - Details
+
+Product Details
+- Content Panel
+- Horizontal splitter (media breakpoint)
+- Image Viewer
+- Product details
+- Price component
+- Action button
+
+Product details - order
+	- Order reducer
+	- Progress stepper
+	- Content Panel
+
+	- Paint (page)
+		- Page description
+		- Horizontal Splitter
+		- SVG Editor
+			- Horizontal splitter
+			- Drop down
+		- Price modifier
+			- Info tooltip
+		- Action button
+
+	- Personalise (page)
+		- Page description
+		- Editable list
+			- Input / TextArea / Dropdown component
+		- Action button
+
+	- Summary (page)
+		- Cart context
+		- Page description
+		- Product details
+		- Customised options
+		- Additional Comments
+		- Quantity
+		- Price
+		- Action button
+
+	- Order complete / Thank you (page)
+		- Order number
+		- Thank you blurb
+		- External link
+		- Action button
+
+
+Contact
+- Content panel
+- Horizontal splitter
+- Input / Drop down
+- Uses URL parameter to pre-populate about
+- Contact form sender
+- Not a robot check?
+- Action button
+
+Cart
+- Cart context
+-  content panel
+-  Cart list
+		- Product image
+		- Quantity
+		- sub total
+		- Colour options
+		- Customised options
+
+Custom Design
+- Action button (to the contact page with pre-filled type)
+- Page description
+- Carousel of previous designs and testomonials
