@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from '@reach/router'
 import styled from 'styled-components'
 
+import Logo from 'assets/SeraphineForeverWhiteLogo.png'
 import { PATHS } from 'utils/paths'
 
 import * as gs from 'utils/globalStyles'
@@ -11,6 +12,20 @@ const Footer = styled.section`
   background-color: ${gs.colours.primary.shaded};
   height: 200px;
   width: 100%;
+  position: relative;
+`
+
+const StyledLogo = styled.div`
+  position: absolute;
+  top: ${gs.spacing.normal};
+  opacity: 0.05;
+  left: 0;
+  height: 160px;
+  width: 100%;
+  background-image: url(${Logo});
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
 `
 
 const Header = styled.h3`
@@ -45,6 +60,7 @@ const Emphasis = styled.span`
 
 export default () => (
   <Footer>
+    <StyledLogo />
     <Header>Sitemap</Header>
     <SitemapItem to={PATHS.HOME.to}>Home</SitemapItem>
     <SitemapItem to={PATHS.PRODUCTS.to}>Products</SitemapItem>
