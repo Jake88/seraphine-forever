@@ -37,13 +37,17 @@ const InnerWrapper = sc.div`
   text-align: center;
 `
 
-const Centerpiece = sc.img`
+const Centerpiece = sc.div`
   border: 10px solid ${gs.colours.offWhite};
   box-shadow: ${gs.colours.fadedBlack} 0 3px 6px;
   width: 150px;
   height: 150px;
   border-radius: 50%;
   margin: ${gs.spacing.large} auto ${gs.spacing.large} auto;
+  background-image: url(${logoWithBackground});
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
 `
 const Title = sc.h1`
   font-size: ${gs.font.sizes.title};
@@ -122,7 +126,7 @@ export default ({path}) => {
     <HeroBanner home={home}>
       <Wrapper home={home}>
         <InnerWrapper>
-          <Centerpiece home={showExtras} src={logoWithBackground}/>
+          <Centerpiece home={showExtras} />
           {showExtras && (
             <Fader home={home}>
               <Title>Seraphine Forever</Title>
