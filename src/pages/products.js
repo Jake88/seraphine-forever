@@ -3,6 +3,7 @@ import styled from 'styled-components'
 
 import { withProducts } from 'contexts/products'
 
+import Loader from 'components/Loader'
 import ProductThumbnail from 'components/ProductThumbnail'
 
 
@@ -12,7 +13,9 @@ const ProductList = styled.div`
   justify-content: center;
 `
 
-const Products = ({products = []}) => {
+const Products = ({products}) => {
+  if (!products.length) return <Loader />
+
   return (
     <ProductList>
       {products.map((product, index) => (

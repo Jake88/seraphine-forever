@@ -1,5 +1,5 @@
 import React from 'react'
 
 export default props => (
-  <p>Home page</p>
+  <p>home page</p>
 )

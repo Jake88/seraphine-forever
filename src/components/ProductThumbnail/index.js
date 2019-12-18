@@ -12,13 +12,12 @@ import {
 
 export default ({product}) => (
   <ProductWrapper onClick={() =>
-    navigate( PATHS.PRODUCT_DETAILS.to, { state: {product: product} })
+    navigate( PATHS.PRODUCT_DETAILS.to(product.config.sfid))
   }>
     <ProductTitle>{product.title}</ProductTitle>
     <ProductImage src={product.images[0].src}/>
     <Link
-      to={PATHS.PRODUCT_DETAILS.to}
-      state={{product: product}}
+      to={PATHS.PRODUCT_DETAILS.to(product.config.sfid)}
     >
       More details
     </Link>

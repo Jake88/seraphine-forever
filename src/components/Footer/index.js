@@ -46,8 +46,8 @@ const SitemapItem = styled(Link)`
 
 const Copyright = styled.p`
   position: absolute;
-  bottom: ${gs.spacing.normal};
-  right: ${gs.spacing.normal};
+  bottom: ${gs.spacing.large};
+  right: ${gs.spacing.large};
   color: ${gs.colours.primary.darker};
   text-align: right;
 `

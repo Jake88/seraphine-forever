@@ -1,9 +1,8 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 
 import SvgEditor from 'components/SvgEditor'
 
-import { Panel, Title, Paragraph } from 'components/common'
+import { Panel } from 'components/common'
 
 
 // To come in as props

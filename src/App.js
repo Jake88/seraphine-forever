@@ -12,11 +12,6 @@ import ProductsPage from 'pages/products'
 import BlogPage from 'pages/blog'
 
 import ProductPage from 'pages/order/orderWrapper'
-import ProductDetailsPage from 'pages/order/productDetails'
-import SvgEditorPage from 'pages/order/svgEditor'
-import PersonaliserPage from 'pages/order/personaliser'
-import ConfirmPage from 'pages/order/confirm'
-import ThanksPage from 'pages/order/thanks'
 
 import StickyHeader from 'components/StickyHeader'
 import HeroBanner from 'components/HeroBanner'
@@ -25,6 +20,7 @@ import Footer from 'components/Footer'
 import { ConfineWidth } from 'components/common'
 import { ProvideCart } from 'contexts/cart'
 import { ProvideProducts } from 'contexts/products'
+import { ProvideLoader } from 'contexts/loader'
 import { PATHS } from 'utils/paths'
 
 import {
@@ -40,36 +36,32 @@ function App() {
   return (
     <>
       <Wrapper>
-        <ProvideProducts>
-          <ProvideCart>
-            <TrendSetter />
-            <Location>
-              {({location}) => (
-                <React.Fragment>
-                  <StickyHeader path={location.pathname}/>
-                  <HeroBanner path={location.pathname}/>
-                </React.Fragment>
-              )}
-            </Location>
-            <ConfineWidth>
-              <Router primary={false}>
-                <HomePage path={PATHS.HOME.relative} />
-                <CartPage path={PATHS.CART.relative} />
-                <ContactPage path={PATHS.CONTACT.relative} />
-                <ProductsPage path={PATHS.PRODUCTS.relative} />
-                <ProductPage path={PATHS.PRODUCT.relative}>
+        <ProvideLoader>
+          <ProvideProducts>
+            <ProvideCart>
+              <TrendSetter />
+              <Location>
+                {({location}) => (
+                  <React.Fragment>
+                    <StickyHeader path={location.pathname}/>
+                    <HeroBanner path={location.pathname}/>
+                  </React.Fragment>
+                )}
+              </Location>
+              <ConfineWidth>
+                <Router primary={false}>
+                  <HomePage path={PATHS.HOME.relative} />
+                  <CartPage path={PATHS.CART.relative} />
+                  <ContactPage path={PATHS.CONTACT.relative} />
+                  <ProductsPage path={PATHS.PRODUCTS.relative} />
                   <CustomDesignsPage path={PATHS.CUSTOM_DESIGNS.relative} />
-                  <ProductDetailsPage path={PATHS.PRODUCT_DETAILS.relative} />
-                  <SvgEditorPage path={PATHS.COLOUR_PICKER.relative} />
-                  <PersonaliserPage path={PATHS.PERSONALISE.relative} />
-                  <ConfirmPage path={PATHS.CONFIRM.relative} />
-                  <ThanksPage path={PATHS.THANKS.relative} />
                   <BlogPage path={PATHS.BLOG.relative} />
-                </ProductPage>
-              </Router>
-            </ConfineWidth>
-          </ProvideCart>
-        </ProvideProducts>
+                  <ProductPage path={`${PATHS.PRODUCT.relative}/*`}/>
+                </Router>
+              </ConfineWidth>
+            </ProvideCart>
+          </ProvideProducts>
+        </ProvideLoader>
       </Wrapper>
 
       <Footer />

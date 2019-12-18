@@ -7,6 +7,7 @@ import {
 } from 'products/product.type'
 
 export const BirthPillowConfig = {
+  sfid: 'birth-pillow',
   id: 'Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzM5MzE1MjkyNDg4NTY=',
   shopifyConfig: {
     title: 'Baby Birth Pillow',
