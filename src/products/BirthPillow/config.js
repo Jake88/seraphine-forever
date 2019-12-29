@@ -9,23 +9,55 @@ import {
 export const BirthPillowConfig = {
   sfid: 'birth-pillow',
   id: 'Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzM5MzE1MjkyNDg4NTY=',
-  shopifyConfig: {
-    title: 'Baby Birth Pillow',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-    price: 40
-  },
+  blurb: `Personalised pillows are a wonderful keepsake gift for a newborn, birthday, baptism or other occasion. Perfect to ensure lasting memories.`,
+  finePrint: `Includes pillow case and pillow insert`,
+  specs: [{
+    key: `Pillow size`,
+    value: `43cm x 43cm`
+  }],
   Svg,
   colourConfig: {
     availableColours: getAvailableColours([VINYL_TYPES.GLITTER]),
     defaultColours: {
-      colour1: getColour(NAMES.GLITTER_SILVER),
-      colour2: getColour(NAMES.GLITTER_GOLD)
+      'Primary': getColour(NAMES.GLITTER_SILVER),
+      'Accent': getColour(NAMES.GLITTER_GOLD)
     }
   },
   editableConfig: [
-    { key: 'name', type: EDITABLE_TYPES.INPUT },
-    { key: 'date', type: EDITABLE_TYPES.DATE },
-    { key: 'time', type: EDITABLE_TYPES.INPUT },
-    { key: 'height', type: EDITABLE_TYPES.INPUT },
+    { 
+      id: 'First name',
+      type: EDITABLE_TYPES.TEXT,
+      required: true,
+      defaultValue: '',
+      placeholder: 'John'
+    },
+    {
+      id: 'Date of birth',
+      type: EDITABLE_TYPES.DATE,
+      required: true,
+      defaultValue: '',
+      placeholder: 'DD/MM/YYY'
+    },
+    {
+      id: 'Time of birth',
+      type: EDITABLE_TYPES.TEXT,
+      required: true,
+      defaultValue: '',
+      placeholder: 'HH:MM (PM / AM)'
+    },
+    {
+      id: 'Baby length',
+      type: EDITABLE_TYPES.TEXT,
+      required: true,
+      defaultValue: '',
+      placeholder: '52 (cm / inch)'
+    },
+    {
+      id: 'Baby weight',
+      type: EDITABLE_TYPES.TEXT,
+      required: true,
+      defaultValue: '',
+      placeholder: '2.5 (kg / lbs)'
+    }
   ]
 }

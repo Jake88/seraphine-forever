@@ -42,10 +42,10 @@ function App() {
               <TrendSetter />
               <Location>
                 {({location}) => (
-                  <React.Fragment>
+                  <>
                     <StickyHeader path={location.pathname}/>
                     <HeroBanner path={location.pathname}/>
-                  </React.Fragment>
+                  </>
                 )}
               </Location>
               <ConfineWidth>

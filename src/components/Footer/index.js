@@ -26,6 +26,7 @@ const StyledLogo = styled.div`
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
+  pointer-events: none;
 `
 
 const Header = styled.h3`
@@ -35,7 +36,7 @@ const Header = styled.h3`
 `
 
 const SitemapItem = styled(Link)`
-  display: block;
+  display: inline-block;
   color: ${gs.colours.primary.darker};
   transition: all ${gs.transitions.fast};
 
@@ -62,15 +63,18 @@ export default () => (
   <Footer>
     <StyledLogo />
     <Header>Sitemap</Header>
-    <SitemapItem to={PATHS.HOME.to}>Home</SitemapItem>
-    <SitemapItem to={PATHS.PRODUCTS.to}>Products</SitemapItem>
-    <SitemapItem to={PATHS.CUSTOM_DESIGNS.to}>Custom designs</SitemapItem>
-    <SitemapItem to={PATHS.BLOG.to}>Blog</SitemapItem>
-    <SitemapItem to={PATHS.CONTACT.to}>Contact us</SitemapItem>
+    <SitemapItem to={PATHS.HOME.to}>Home</SitemapItem><br/>
+    <SitemapItem to={PATHS.PRODUCTS.to}>Products</SitemapItem><br/>
+    <SitemapItem to={PATHS.CUSTOM_DESIGNS.to}>Custom designs</SitemapItem><br/>
+    <SitemapItem to={PATHS.BLOG.to}>Blog</SitemapItem><br/>
+    <SitemapItem to={PATHS.CONTACT.to}>Contact us</SitemapItem><br/>
     <SitemapItem to={PATHS.CART.to}>Shopping cart</SitemapItem>
 
     <Copyright>
       Copyright© 2019 <Emphasis>Serphine Forever</Emphasis>, all rights reserved
+      <br/>
+      <br/>
+      <Emphasis>ABN </Emphasis>000 00000 00000
       <br/>
       <br/>
       Website by <Emphasis>Jake Turner</Emphasis>

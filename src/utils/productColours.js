@@ -18,14 +18,14 @@ export default [
   {
     types: [VINYL_TYPES.BASIC],
     name: NAMES.RED,
-    cost: 1,
+    cost: 0,
     hex: '#ff0000',
     stock: true
   },
   {
     types: [VINYL_TYPES.METALLIC, VINYL_TYPES.STRETCH],
     name: NAMES.METALLIC_BLUE,
-    cost: 1,
+    cost: 0,
     hex: '#123456',
     stock: true
   },

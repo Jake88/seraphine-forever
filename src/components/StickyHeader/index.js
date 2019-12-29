@@ -15,7 +15,7 @@ const Bar = sc.div`
   width: 100%;
   opacity: 0.9;
   padding: 0 ${gs.spacing.large};
-  z-index: ${gs.layers.important};
+  z-index: ${gs.layers.overlay};
 `
 
 const Wrapper = sc(ConfineWidth)`

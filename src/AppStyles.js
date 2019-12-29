@@ -23,6 +23,7 @@ export const TrendSetter = createGlobalStyle`
     font-size: ${gs.font.sizes.normal};
     font-family: ${gs.font.families.normal};
     padding-top: ${gs.specifics.navHeight};
+    overflow-x: hidden;
   }
 
   h1, h2, h3, h4, h5 {

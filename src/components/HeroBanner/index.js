@@ -17,7 +17,7 @@ const HeroBanner = sc.section`
   background-size: cover;
   background-position: center;
   pointer-events: none;
-  margin-bottom: ${({home}) => home ? '0' : '80px'};
+  margin-bottom: ${({home}) => home ? gs.spacing.large : '80px'};
 `
 
 const Wrapper = sc(ConfineWidth)`

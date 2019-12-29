@@ -5,13 +5,35 @@ import { withLoader } from 'contexts/loader'
 import { LOADING } from 'utils/loadingMessages'
 import productConfigs from 'products'
 
-export const mapImages = image => ({
+import Image from 'assets/logoWithBackground.jpg'
+import productsObject from './productsData'
+const stubData = () => {
+  console.log('Using product stub data', productsObject.products.edges)
+  return productsObject.products.edges
+}
+
+const mapStubProducts = product => {
+  let config = productConfigs[product.node.id]
+  if (!config) {
+    config = {}
+    console.error(`No config found matching the Shopify product "${product.node.title}"`)
+  }
+  return {
+    config,
+    description: product.node.description,
+    title: product.node.title,
+    price: product.node.variants.edges[0].node.price,
+    images: [{src: Image, altText: 'Stub image'}]
+  }
+}
+
+const mapImages = image => ({
   src: image.attrs.src,
   altText: image.attrs.altText
 })
 
 // Map the graphModel from shopify to a model we can consume easier within our client.
-export const mapProduct = product => {
+const mapProduct = product => {
   let config = productConfigs[product.attrs.id.value]
   if (!config) {
     config = {}
@@ -19,6 +41,7 @@ export const mapProduct = product => {
   }
   return {
     config,
+    price: product.attrs.variants[0].attrs.price,
     description: product.attrs.description.value,
     title: product.attrs.title.value,
     images: product.attrs.images.map(mapImages)
@@ -42,8 +65,10 @@ export const useProducts = (setLoadingMessage, clearLoadingMessage) => {
       })
       .catch(e => {
         console.error('Fetching products failed')
-        console.error(e)
-        setShopifyProducts([])
+        // console.error(e)
+        // setShopifyProducts([])
+        setShopifyProducts(stubData().map(mapStubProducts))
+        clearLoadingMessage(LOADING.PRODUCTS)
       })
   }, [clearLoadingMessage, setLoadingMessage])
 

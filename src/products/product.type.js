@@ -16,7 +16,8 @@ export const PRODUCT_TYPE = {
 }
 
 export const EDITABLE_TYPES = {
-  INPUT: 'INPUT',
+  TEXT: 'TEXT',
+  NUMBER: 'NUMBER',
   DATE: 'DATE',
   TEXTAREA: 'TEXTAREA'
 }

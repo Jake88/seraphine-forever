@@ -44,47 +44,6 @@ const Container = sc.div`
   `}
 `
 
-const ImageConfiner = sc.div`
-  overflow: hidden;
-  max-height: 500px;
-
-  img {
-    max-height: 500px;
-  }
-
-  svg {
-    max-height: 500px;
-  }
-`
-
-const ImageSelector = sc.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-`
-
-const ThumbnailImg = sc.div`
-  border: 2px solid ${gs.colours.primary.lightest};
-  height: 100px;
-  width: 100px;
-  background-image: url(${({bgsrc}) => bgsrc});
-  background-size: cover;
-  background-position: center;
-  margin-right: ${gs.spacing.small};
-  cursor: pointer;
-  overflow: hidden;
-
-  &:hover {
-    border-color: ${gs.colours.primary.lighter};
-  }
-
-  ${gs.media.down(gs.mediaSizes.sm)`
-    border: 1px solid ${gs.colours.primary.lightest};
-    height: 60px;
-    width: 60px;
-  `}
-`
-
 const Price = sc.p`
   font-size: ${gs.font.sizes.large};
   text-align: right;
@@ -114,7 +73,6 @@ const Button = sc.button`
 
 export default ({productConfig, shopifyProduct, imageSources, Svg, colours, colourStates, children}) => {
   const SvgEditorProps = { Svg, colours, colourStates }
-  const [selectedImage, selectImage] = useState(0)
 
   const calculatePrice = () => {
     let vinylCost = 0
@@ -143,12 +101,6 @@ export default ({productConfig, shopifyProduct, imageSources, Svg, colours, colo
         <ProgressBar steps={steps}/>
         <Container>
           <TitleMobile>{shopifyProduct.title}</TitleMobile>
-          <ImageConfiner>
-            <img width='100%' src={imageSources[selectedImage]} />
-          </ImageConfiner>
-          <ImageSelector>
-            {imageSources.map((src, index) => <ThumbnailImg key={`thumbanil${index}`} bgsrc={src} onClick={() => selectImage(index)}/>)}
-          </ImageSelector>
         </Container>
         <Container>
           <TitleDesktop>{shopifyProduct.title}</TitleDesktop>
